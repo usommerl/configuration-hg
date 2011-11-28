@@ -1,0 +1,5 @@
+# This is a Mercurial configuration file
+
+[ui]
+ssh = ssh -C
+username = Uwe Sommerlatt <uwe.sommerlatt@gmail.com>
