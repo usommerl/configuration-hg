@@ -1,3 +1,58 @@
 [ui]
 ssh = ssh -C
 username = Uwe Sommerlatt <uwe.sommerlatt@gmail.com>
+merge = meld
+
+[extensions]
+color =
+hgext.extdiff =
+rebase =
+graphlog =
+pager =
+purge =
+shelve=
+
+[pager]
+attend = annotate, cat, diff, export, glog, log, qdiff, l, d
+pager = LESS='FRX' less
+
+[extdiff]
+cmd.cdiff = colordiff
+opts.cdiff = -uprN
+
+[color]
+status.modified = blue bold
+status.added = green bold
+status.removed = red bold
+status.deleted = cyan bold
+status.unknown = magenta bold
+status.ignored = white bold
+diff.diffline = bold
+diff.extended = cyan bold
+diff.file_a = red bold
+diff.file_b = green bold
+diff.hunk = magenta
+diff.deleted = red
+diff.inserted = green
+diff.changed = white
+diff.trailingwhitespace = bold red_background
+
+[defaults]
+cdiff = -q
+
+[alias]
+l = glog
+ps = push
+pl = pull
+d = diff
+b = branch
+c = commit
+s = ! if [ -n "$1" ]; then $HG log -p -r $1; else $HG log -p -r "$($HG log -q -l 1)"; fi
+
+[merge-tools]
+meld.priority = 1
+meld.premerge = False
+meld.args = $local $other $base
+
+[merge-patterns]
+** = meld
